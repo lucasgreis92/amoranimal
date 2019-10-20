@@ -22,7 +22,11 @@ public class Adocao {
     private Adotante adotante;
 
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
-    private LocalDateTime dtAdocao;
+    private LocalDateTime dtAdocao = LocalDateTime.now();
+
+    private LocalDateTime dtUltAcomp;
+
+    private boolean ieAtivo = true;
 
     private List<Visita> visitas = new ArrayList<>();
 
@@ -84,5 +88,21 @@ public class Adocao {
 
     public void setDevolucoes(List<Devolucao> devolucoes) {
         this.devolucoes = devolucoes;
+    }
+
+    public boolean isIeAtivo() {
+        return ieAtivo;
+    }
+
+    public void setIeAtivo(boolean ieAtivo) {
+        this.ieAtivo = ieAtivo;
+    }
+
+    public LocalDateTime getDtUltAcomp() {
+        return dtUltAcomp;
+    }
+
+    public void setDtUltAcomp(LocalDateTime dtUltAcomp) {
+        this.dtUltAcomp = dtUltAcomp;
     }
 }

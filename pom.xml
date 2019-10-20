@@ -98,7 +98,12 @@
             <artifactId>resteasy-jackson2-provider</artifactId>
             <version>3.0.24.Final</version>
         </dependency>
-
+        <!-- google maps-->
+        <dependency>
+            <groupId>com.google.maps</groupId>
+            <artifactId>google-maps-services</artifactId>
+            <version>0.9.4</version>
+        </dependency>
 
     </dependencies>
 

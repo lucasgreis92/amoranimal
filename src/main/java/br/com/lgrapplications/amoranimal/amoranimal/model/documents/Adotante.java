@@ -1,10 +1,13 @@
 package br.com.lgrapplications.amoranimal.amoranimal.model.documents;
 
+import br.com.lgrapplications.amoranimal.amoranimal.base.handler.GeoJsonDeserializer;
 import br.com.lgrapplications.amoranimal.amoranimal.model.Devolucao;
 import br.com.lgrapplications.amoranimal.amoranimal.model.Ocorrencia;
 import br.com.lgrapplications.amoranimal.amoranimal.model.Visita;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
@@ -44,6 +47,8 @@ public class Adotante {
 
     private String tpAnimal;
 
+    private String complemento;
+
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     private LocalDateTime dtUltAcomp;
 
@@ -57,6 +62,10 @@ public class Adotante {
     private List<Ocorrencia> ocorrencias = new ArrayList<>();
 
     private List<Devolucao> devolucoes = new ArrayList<>();
+    @JsonDeserialize(
+            using = GeoJsonDeserializer.class
+    )
+    private GeoJsonPoint location;
 
     public String getId() {
         return id;
@@ -216,5 +225,21 @@ public class Adotante {
 
     public void setUrlImagem(String urlImagem) {
         this.urlImagem = urlImagem;
+    }
+
+    public GeoJsonPoint getLocation() {
+        return location;
+    }
+
+    public void setLocation(GeoJsonPoint location) {
+        this.location = location;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
     }
 }

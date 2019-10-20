@@ -36,6 +36,8 @@ public class Animal {
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     private LocalDateTime dtAdocao;
 
+    private LocalDateTime dtCadastramento = LocalDateTime.now();
+
     private List<Visita> visitas = new ArrayList<>();
 
     private List<Ocorrencia> ocorrencias = new ArrayList<>();
@@ -43,6 +45,8 @@ public class Animal {
     private List<Devolucao> devolucoes = new ArrayList<>();
 
     private String nomeAdotante;
+
+    private String idAdotante;
 
     private String urlImagem = "img/no-image.png";
 
@@ -172,5 +176,13 @@ public class Animal {
 
     public void setUrlImagem(String urlImagem) {
         this.urlImagem = urlImagem;
+    }
+
+    public LocalDateTime getDtCadastramento() {
+        return dtCadastramento;
+    }
+
+    public void setDtCadastramento(LocalDateTime dtCadastramento) {
+        this.dtCadastramento = dtCadastramento;
     }
 }
